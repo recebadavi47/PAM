@@ -64,7 +64,7 @@ export default function App() {
         
 
         <View style={styles.inputContainer}>
-          <TextInput 
+          <TextInput secureTextEntry={true}
             style={{
               height: 15,
               borderColor: "rgba(214, 83, 74, 1)",
@@ -74,7 +74,9 @@ export default function App() {
               padding: 10,
               backgroundColor: '#ffdc3f21', 
               color:'#a3a3a2b7',
+              
             }}
+            
             placeholder="Senha"
           />
         <View style={{
@@ -82,7 +84,9 @@ export default function App() {
           marginRight: 60,
           backgroundColor: "rgba(214, 83, 74, 1)" ,
         }}>
-                <Button onPress={() => {setIsHungry(false);}} title={'BABOSA '}>
+                <Button 
+                color="rgba(214, 83, 74, 1)"
+                onPress={() => {setIsHungry(false);}} title={'Entrar'}>
                   
                 </Button>
 
