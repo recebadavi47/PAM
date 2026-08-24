@@ -3,33 +3,59 @@ import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 
 export default function Home({ navigation }) {
 
+  const imagemBleach = {
+    uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv5cPhNbx3gGhlAK8Faws75opwWEfV7wdPX-T-IFvO9ODrsdpmhmHIsQw&s=10.png'
+  };
+
   const usuarios = [
-    { id: '1', nome: 'Ichigo Kurosaki', nomeZanpakuto: 'Zangetsu', imagem: ('https://i.redd.it/7davmfpsu4df1.png')},
-    { id: '2', nome: 'Rukia Kuchiki', nomeZanpakuto: 'Sode no Shirayuki' },
-    { id: '3', nome: 'Byakuya Kuchiki', nomeZanpakuto: 'Senbonzakura'},
-    { id: '4', nome: 'Kenpachi Zaraki', nomeZanpakuto: 'Nozarashi'},
-    { id: '5', nome: 'Toshiro Hitsugaya', nomeZanpakuto: 'Hyorinmaru'},
-    { id: '6', nome: 'Sosuke Aizen', nomeZanpakuto: 'Kyoka Suigetsu'},
-    { id: '7', nome: 'Shunsui Kyoraku', nomeZanpakuto: 'Katen Kyokotsu' },
-    { id: '8', nome: 'Jushiro Ukitake', nomeZanpakuto: 'Sogyo no Kotowari' },
-    { id: '9', nome: 'Genryusai Yamamoto', nomeZanpakuto: 'Ryujin Jakka' },
-    { id: '10', nome: 'Kisuke Urahara', nomeZanpakuto: 'Benihime' },
-    { id: '11', nome: 'Yoruichi Shihouin', nomeZanpakuto: 'Desconhecida' },
-    { id: '12', nome: 'Renji Abarai', nomeZanpakuto: 'Zabimaru' },
-    { id: '13', nome: 'Mayuri Kurotsuchi', nomeZanpakuto: 'Ashisogi Jizo' },
-    { id: '14', nome: 'Shinji Hirako', nomeZanpakuto: 'Sakanade' },
-    { id: '15', nome: 'Gin Ichimaru', nomeZanpakuto: 'Shinsō' },
-    { id: '16', nome: 'Kaname Tosen', nomeZanpakuto: 'Suzumushi' },
-    { id: '17', nome: 'Sajin Komamura', nomeZanpakuto: 'Tenken' },
-    { id: '18', nome: 'Ikkaku Madarame', nomeZanpakuto: 'Hozukimaru' },
-    { id: '19', nome: 'Izuru Kira', nomeZanpakuto: 'Wabisuke' },
-    { id: '20', nome: 'Rangiku Matsumoto', nomeZanpakuto: 'Haineko' }
+    {
+      id: '1',
+      nome: 'Ichigo Kurosaki',
+      nomeZanpakuto: 'Zangetsu',
+      imagem: 'https://i.redd.it/7davmfpsu4df1.png'
+    },
+    {
+      id: '2',
+      nome: 'Rukia Kuchiki',
+      nomeZanpakuto: 'Sode no Shirayuki',
+      imagem: 'https://i.pinimg.com/736x/b9/54/b3/b954b30e4f0a3f33c19fae6df50ea5bc.jpg'
+    },
+    {
+      id: '3',
+      nome: 'Byakuya Kuchiki',
+      nomeZanpakuto: 'Senbonzakura'
+    },
+    {
+      id: '4',
+      nome: 'Kenpachi Zaraki',
+      nomeZanpakuto: 'Nozarashi'
+    },
+    {
+      id: '5',
+      nome: 'Toshiro Hitsugaya',
+      nomeZanpakuto: 'Hyorinmaru'
+    },
+    {
+      id: '6',
+      nome: 'Sosuke Aizen',
+      nomeZanpakuto: 'Kyoka Suigetsu'
+    },
   ];
 
   return (
     <View style={styles.container}>
 
-      <Text style={styles.titulo}>Personagens de Bleach</Text>
+      {/* IMAGEM NO COMEÇO DO SITE */}
+      <View style={styles.bleach}>
+        <Image
+          source={imagemBleach}
+          style={styles.imagemBleach}
+        />
+
+        <Text style={styles.titulo}>
+          PERSONAGENS DE BLEACH
+        </Text>
+      </View>
 
       <FlatList
         data={usuarios}
@@ -45,10 +71,12 @@ export default function Home({ navigation }) {
               Zanpakutō: {item.nomeZanpakuto}
             </Text>
 
-             <Image
-              source={item.imagem}
-              style={styles.imagem}
+            {item.imagem && (
+              <Image
+                source={{ uri: item.imagem }}
+                style={styles.imagem}
               />
+            )}
 
           </View>
         )}
@@ -59,40 +87,68 @@ export default function Home({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  imagem: {
-  width: 100,
-  height: 200,
-  marginBottom: 10,
-  padding: 500,
-},
+
   container: {
     flex: 1,
-    backgroundColor: '#ffc421',
+    backgroundColor: '#050505',
     padding: 20,
   },
 
-  titulo: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
+  /* CABEÇALHO */
+  bleach: {
+    width: '100%',
+    height: 200,
     marginBottom: 20,
+    backgroundColor: '#FF8138',
+    borderWidth: 3,
+    borderColor: '#000000',
+    overflow: 'hidden',
   },
 
+  imagemBleach: {
+    width: '100%',
+    height: 160,
+    resizeMode: 'cover',
+    borderWidth: 2,
+    borderColor: '#FF8138',
+  },
+
+  titulo: {
+    fontSize: 12,
+    fontWeight: '900',
+    textAlign: 'center',
+    padding: 20,
+    backgroundColor: '#000000',
+    color: '#FF8138',
+    letterSpacing: 2,
+  },
+
+  /* CARDS DOS PERSONAGENS */
   item: {
-    backgroundColor: '#eccfcf',
+    backgroundColor: '#111111',
     padding: 15,
     marginBottom: 10,
-    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: '#FF8138',
   },
 
   nome: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
+    color: '#ffffff',
   },
 
   zanpakuto: {
     fontSize: 15,
     marginTop: 5,
-    color: '#555',
+    color: '#ffae7f',
   },
+
+  imagem: {
+    width: '100%',
+    height: 200,
+    marginTop: 10,
+    resizeMode: 'cover',
+  },
+
 });
