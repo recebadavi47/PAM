@@ -5,7 +5,8 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  ImageBackground
 } from 'react-native';
 
 import styles from '../Estilo';
@@ -53,122 +54,122 @@ const PERGUNTAS = [
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Quem treinou Luke Skywalker em Dagobah?',
+    pergunta: 'Quem é o protagonista principal de Jujutsu Kaisen?',
     opcoes: [
-      'Yoda',
-      'Han Solo',
-      'Chewbacca',
-      'Darth Vader'
+      'Yuji Itadori',
+      'Megumi Fushiguro',
+      'Satoru Gojo',
+      'Sukuna'
     ],
-    correta: 'Yoda'
+    correta: 'Yuji Itadori'
   },
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Qual é a arma tradicional dos Jedi?',
+    pergunta: 'Qual item amaldiçoado Yuji engole para ganhar seus poderes?',
     opcoes: [
-      'Sabre de luz',
-      'Blaster',
-      'Arco',
-      'Lança'
+      'Dedo de Sukuna',
+      'Olho de Sukuna',
+      'Coração de Sukuna',
+      'Dente de Sukuna'
     ],
-    correta: 'Sabre de luz'
+    correta: 'Dedo de Sukuna'
   },
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Quem é o pai de Luke Skywalker?',
+    pergunta: 'Quem é o professor responsável pela turma de Yuji?',
     opcoes: [
-      'Darth Vader',
-      'Obi-Wan Kenobi',
-      'Han Solo',
-      'Yoda'
+      'Satoru Gojo',
+      'Masamichi Yaga',
+      'Kento Nanami',
+      'Shoko Ieiri'
     ],
-    correta: 'Darth Vader'
+    correta: 'Satoru Gojo'
   },
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Qual é o verdadeiro nome de Darth Vader?',
+    pergunta: 'Qual é a técnica amaldiçoada de Megumi Fushiguro?',
     opcoes: [
-      'Anakin Skywalker',
-      'Luke Skywalker',
-      'Ben Solo',
-      'Mace Windu'
+      'Dez Sombras',
+      'Boogie Woogie',
+      'Straw Doll Technique',
+      'Idle Transfiguration'
     ],
-    correta: 'Anakin Skywalker'
+    correta: 'Dez Sombras'
   },
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Quem é a irmã de Luke Skywalker?',
+    pergunta: 'Quem é a colega de Yuji que luta usando martelo e pregos?',
     opcoes: [
-      'Leia Organa',
-      'Rey',
-      'Ahsoka Tano',
-      'Padmé Amidala'
+      'Nobara Kugisaki',
+      'Maki Zenin',
+      'Mai Zenin',
+      'Shoko Ieiri'
     ],
-    correta: 'Leia Organa'
+    correta: 'Nobara Kugisaki'
   },
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Quem é famoso por pilotar a Millennium Falcon?',
+    pergunta: 'Em qual escola Yuji estuda para se tornar feiticeiro?',
     opcoes: [
-      'Han Solo',
-      'Yoda',
-      'Mace Windu',
-      'Palpatine'
+      'Colégio Técnico de Feitiçaria de Tóquio',
+      'Academia de Kyoto',
+      'Instituto Amaldiçoado de Osaka',
+      'Escola Superior de Sendai'
     ],
-    correta: 'Han Solo'
+    correta: 'Colégio Técnico de Feitiçaria de Tóquio'
   },
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Qual droide costuma acompanhar C-3PO?',
+    pergunta: 'Quem é conhecido como "Rei das Maldições"?',
     opcoes: [
-      'R2-D2',
-      'BB-8',
-      'K-2SO',
-      'IG-11'
+      'Ryomen Sukuna',
+      'Mahito',
+      'Jogo',
+      'Kenjaku'
     ],
-    correta: 'R2-D2'
+    correta: 'Ryomen Sukuna'
   },
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Qual lado da Força é associado aos Sith?',
+    pergunta: 'Qual é a cor dos olhos de Satoru Gojo?',
     opcoes: [
-      'Lado Sombrio',
-      'Lado Luminoso',
-      'Lado Neutro',
-      'Lado Jedi'
+      'Azul',
+      'Verde',
+      'Vermelho',
+      'Roxo'
     ],
-    correta: 'Lado Sombrio'
+    correta: 'Azul'
   },
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Qual é a espécie de Chewbacca?',
+    pergunta: 'O que Megumi invoca ao usar sua técnica amaldiçoada?',
     opcoes: [
-      'Wookiee',
-      'Ewok',
-      'Togruta',
-      'Twi’lek'
+      'Sombras com formas de animais',
+      'Espadas flutuantes',
+      'Bonecos de palha',
+      'Pregos amaldiçoados'
     ],
-    correta: 'Wookiee'
+    correta: 'Sombras com formas de animais'
   },
 
   {
     nivel: 'FÁCIL',
-    pergunta: 'Em qual planeta Luke Skywalker cresceu?',
+    pergunta: 'Em qual país se passa a história de Jujutsu Kaisen?',
     opcoes: [
-      'Tatooine',
-      'Naboo',
-      'Coruscant',
-      'Kamino'
+      'Japão',
+      'China',
+      'Coreia do Sul',
+      'Estados Unidos'
     ],
-    correta: 'Tatooine'
+    correta: 'Japão'
   },
 
 
@@ -178,122 +179,122 @@ const PERGUNTAS = [
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'Quem foi o mestre Jedi de Anakin Skywalker?',
+    pergunta: 'Qual é a técnica amaldiçoada de Satoru Gojo?',
     opcoes: [
-      'Obi-Wan Kenobi',
-      'Qui-Gon Jinn',
-      'Mace Windu',
-      'Yoda'
+      'Seis Olhos e Infinito (Limitless)',
+      'Dez Sombras',
+      'Straw Doll Technique',
+      'Ratio Technique'
     ],
-    correta: 'Obi-Wan Kenobi'
+    correta: 'Seis Olhos e Infinito (Limitless)'
   },
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'De qual planeta Padmé Amidala era rainha?',
+    pergunta: 'Quem é a colega de Megumi, do clã Zenin, especialista em armas amaldiçoadas?',
     opcoes: [
-      'Naboo',
-      'Alderaan',
-      'Coruscant',
-      'Tatooine'
+      'Maki Zenin',
+      'Nobara Kugisaki',
+      'Shoko Ieiri',
+      'Momo Nishimiya'
     ],
-    correta: 'Naboo'
+    correta: 'Maki Zenin'
   },
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'Qual era o nome Sith do Imperador Palpatine?',
+    pergunta: 'Qual é o nome da irmã gêmea de Maki Zenin?',
     opcoes: [
-      'Darth Sidious',
-      'Darth Maul',
-      'Darth Vader',
-      'Darth Bane'
+      'Mai Zenin',
+      'Yuki Zenin',
+      'Naoya Zenin',
+      'Ogi Zenin'
     ],
-    correta: 'Darth Sidious'
+    correta: 'Mai Zenin'
   },
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'Qual era o nome Sith do Conde Dookan?',
+    pergunta: 'Qual feiticeiro especial é conhecido pela técnica Boogie Woogie?',
     opcoes: [
-      'Darth Tyranus',
-      'Darth Revan',
-      'Darth Plagueis',
-      'Darth Nihilus'
+      'Aoi Todo',
+      'Kento Nanami',
+      'Yuta Okkotsu',
+      'Toji Fushiguro'
     ],
-    correta: 'Darth Tyranus'
+    correta: 'Aoi Todo'
   },
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'Quem serviu como modelo genético para o Exército Clone?',
+    pergunta: 'Qual é o nome da técnica amaldiçoada de Nobara Kugisaki?',
     opcoes: [
-      'Jango Fett',
-      'Boba Fett',
-      'Obi-Wan Kenobi',
-      'Captain Rex'
+      'Straw Doll Technique',
+      'Dez Sombras',
+      'Idle Transfiguration',
+      'Dismantle'
     ],
-    correta: 'Jango Fett'
+    correta: 'Straw Doll Technique'
   },
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'Qual é a espécie de Ahsoka Tano?',
+    pergunta: 'Quem é o diretor da Jujutsu High de Tóquio?',
     opcoes: [
-      'Togruta',
-      'Twi’lek',
-      'Zabrak',
-      'Mirialan'
+      'Masamichi Yaga',
+      'Yuki Tsukumo',
+      'Gakuganji',
+      'Kento Nanami'
     ],
-    correta: 'Togruta'
+    correta: 'Masamichi Yaga'
   },
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'Qual planeta era o centro político da República Galáctica?',
+    pergunta: 'Qual é o nome da técnica de corte usada por Sukuna?',
     opcoes: [
-      'Coruscant',
-      'Naboo',
-      'Kamino',
-      'Geonosis'
+      'Dismantle (Desmembrar)',
+      'Cleave',
+      'Malevolent Shrine',
+      'World Cutting Slash'
     ],
-    correta: 'Coruscant'
+    correta: 'Dismantle (Desmembrar)'
   },
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'Qual é o verdadeiro nome de Kylo Ren?',
+    pergunta: 'Quem foi colega de escola de Gojo e se tornou um dos principais vilões?',
     opcoes: [
-      'Ben Solo',
-      'Ben Skywalker',
-      'Jacen Solo',
-      'Finn Solo'
+      'Geto Suguru',
+      'Toji Fushiguro',
+      'Mahito',
+      'Choso'
     ],
-    correta: 'Ben Solo'
+    correta: 'Geto Suguru'
   },
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'Quem derrotou o General Grievous em A Vingança dos Sith?',
+    pergunta: 'Quem é a curadora responsável pela enfermaria da Jujutsu High?',
     opcoes: [
-      'Obi-Wan Kenobi',
-      'Anakin Skywalker',
-      'Mace Windu',
-      'Yoda'
+      'Shoko Ieiri',
+      'Mei Mei',
+      'Utahime Iori',
+      'Yuki Tsukumo'
     ],
-    correta: 'Obi-Wan Kenobi'
+    correta: 'Shoko Ieiri'
   },
 
   {
     nivel: 'MÉDIO',
-    pergunta: 'Qual era o principal objetivo da Ordem 66?',
+    pergunta: 'Qual grande evento acontece no arco em que Tóquio é isolada por um domínio?',
     opcoes: [
-      'Eliminar os Jedi',
-      'Destruir os Sith',
-      'Atacar os Separatistas',
-      'Libertar os clones'
+      'Incidente de Shibuya',
+      'Torneio de Kyoto',
+      'Missão de Extermínio de Maldições',
+      'Julgamento de Yuji'
     ],
-    correta: 'Eliminar os Jedi'
+    correta: 'Incidente de Shibuya'
   },
 
 
@@ -303,122 +304,122 @@ const PERGUNTAS = [
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'Qual Lorde Sith é associado à criação da Regra de Dois?',
+    pergunta: 'Quem estava por trás do corpo de Geto durante o Incidente de Shibuya?',
     opcoes: [
-      'Darth Bane',
-      'Darth Sidious',
-      'Darth Plagueis',
-      'Darth Maul'
+      'Kenjaku',
+      'Mahito',
+      'Jogo',
+      'Sukuna'
     ],
-    correta: 'Darth Bane'
+    correta: 'Kenjaku'
   },
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'Qual Jedi encomendou originalmente a criação do Exército Clone?',
+    pergunta: 'Quantos dedos de Sukuna existem ao todo na história?',
     opcoes: [
-      'Sifo-Dyas',
-      'Mace Windu',
-      'Yoda',
-      'Qui-Gon Jinn'
+      '20',
+      '10',
+      '15',
+      '8'
     ],
-    correta: 'Sifo-Dyas'
+    correta: '20'
   },
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'Qual era o nome de nascimento de Kanan Jarrus?',
+    pergunta: 'Qual é o nome do espírito amaldiçoado ligado a Yuta Okkotsu?',
     opcoes: [
-      'Caleb Dume',
-      'Ezra Bridger',
-      'Cal Kestis',
-      'Cere Junda'
+      'Rika Orimoto',
+      'Mai Zenin',
+      'Momo Nishimiya',
+      'Kasumi Miwa'
     ],
-    correta: 'Caleb Dume'
+    correta: 'Rika Orimoto'
   },
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'A qual espécie pertence o Grande Almirante Thrawn?',
+    pergunta: 'Qual é o nome do Domínio Expandido de Satoru Gojo?',
     opcoes: [
-      'Chiss',
-      'Togruta',
-      'Twi’lek',
-      'Zabrak'
+      'Unlimited Void (Domínio Infinito Imutável)',
+      'Malevolent Shrine',
+      'Coffin of the Iron Mountain',
+      'Chimera Shadow Garden'
     ],
-    correta: 'Chiss'
+    correta: 'Unlimited Void (Domínio Infinito Imutável)'
   },
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'Qual é a identificação numérica do Capitão Rex?',
+    pergunta: 'Qual é o nome do Domínio Expandido de Sukuna?',
     opcoes: [
-      'CT-7567',
-      'CT-5555',
-      'CT-1409',
-      'CC-2224'
+      'Malevolent Shrine',
+      'Unlimited Void',
+      'Chimera Shadow Garden',
+      'Self-Embodiment of Perfection'
     ],
-    correta: 'CT-7567'
+    correta: 'Malevolent Shrine'
   },
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'Qual Jedi Mandaloriano criou o Darksaber?',
+    pergunta: 'A qual clã pertence originalmente a técnica Dez Sombras?',
     opcoes: [
-      'Tarre Vizsla',
-      'Pre Vizsla',
-      'Paz Vizsla',
-      'Din Djarin'
+      'Clã Zenin',
+      'Clã Gojo',
+      'Clã Kamo',
+      'Clã Fushiguro'
     ],
-    correta: 'Tarre Vizsla'
+    correta: 'Clã Zenin'
   },
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'Em qual lua fica localizada a Fortaleza Inquisitorius?',
+    pergunta: 'Qual é a técnica amaldiçoada de Mahito?',
     opcoes: [
-      'Nur',
-      'Jedha',
-      'Endor',
-      'Concordia'
+      'Idle Transfiguration (Transfiguração Ociosa)',
+      'Ratio Technique',
+      'Straw Doll Technique',
+      'Boogie Woogie'
     ],
-    correta: 'Nur'
+    correta: 'Idle Transfiguration (Transfiguração Ociosa)'
   },
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'Qual forma de combate com sabre de luz é especialmente associada a Obi-Wan Kenobi?',
+    pergunta: 'Quem é o feiticeiro conhecido pela "Ratio Technique" (Técnica da Proporção)?',
     opcoes: [
-      'Forma III - Soresu',
-      'Forma II - Makashi',
-      'Forma IV - Ataru',
-      'Forma VII - Juyo'
+      'Kento Nanami',
+      'Aoi Todo',
+      'Yuta Okkotsu',
+      'Choso'
     ],
-    correta: 'Forma III - Soresu'
+    correta: 'Kento Nanami'
   },
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'Qual estilo especializado da Forma VII é associado a Mace Windu?',
+    pergunta: 'Qual é o apelido carinhoso dado a Kento Nanami pelos alunos?',
     opcoes: [
-      'Vaapad',
-      'Soresu',
-      'Makashi',
-      'Shien'
+      'Nanamin',
+      'Nanacchi',
+      'Kentokun',
+      'Sensei Nanami'
     ],
-    correta: 'Vaapad'
+    correta: 'Nanamin'
   },
 
   {
     nivel: 'MUITO DIFÍCIL',
-    pergunta: 'O Clã Wren, de Sabine Wren, fazia parte de qual grande casa Mandaloriana?',
+    pergunta: 'Quem é revelado como o pai biológico de Yuji Itadori, um forte lutador sem energia amaldiçoada?',
     opcoes: [
-      'Casa Vizsla',
-      'Casa Kryze',
-      'Casa Fett',
-      'Casa Saxon'
+      'Toji Fushiguro',
+      'Masamichi Yaga',
+      'Kenjaku',
+      'Choso'
     ],
-    correta: 'Casa Vizsla'
+    correta: 'Toji Fushiguro'
   }
 
 ];
@@ -612,12 +613,22 @@ export default function Home({ sair }) {
 
   return (
 
+    <ImageBackground
+      source={{
+        uri: 'https://p2.trrsf.com/image/fget/cf/500/0/images.terra.com/2026/01/12/kaisen-ff-01-t81crr30i2b5.jpg'
+      }}
+      style={styles.imagemFundo}
+      resizeMode="cover"
+    >
+
+    <View style={styles.overlay}>
+
     <ScrollView
       contentContainerStyle={styles.containerHome}
     >
 
       <Text style={styles.titulo}>
-        STAR WARS
+        JUJUTSU KAISEN
       </Text>
 
 
@@ -628,7 +639,7 @@ export default function Home({ sair }) {
       <View style={styles.card}>
 
         <Text style={styles.subtitulo}>
-          Calculadora da Força
+          Calculadora de Energia Amaldiçoada
         </Text>
 
 
@@ -742,7 +753,7 @@ export default function Home({ sair }) {
       <View style={styles.card}>
 
         <Text style={styles.subtitulo}>
-          Quiz Jedi
+          Quiz Feiticeiro
         </Text>
 
 
@@ -902,12 +913,16 @@ export default function Home({ sair }) {
       >
 
         <Text style={styles.textoSair}>
-          SAIR DA BASE
+          SAIR DO COLÉGIO
         </Text>
 
       </TouchableOpacity>
 
     </ScrollView>
+
+    </View>
+
+    </ImageBackground>
 
   );
 

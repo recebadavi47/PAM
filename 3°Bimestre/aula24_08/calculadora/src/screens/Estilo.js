@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -12,14 +12,25 @@ const styles = StyleSheet.create({
 
   containerHome: {
     flexGrow: 1,
-    backgroundColor: '#000000',
+    backgroundColor: 'transparent',
     alignItems: 'center',
     padding: 20,
     paddingTop: 40,
   },
 
+  imagemFundo: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
+
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.65)',
+  },
+
   titulo: {
-    color: '#FFE81F',
+    color: '#B983FF',
     fontSize: 40,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -51,7 +62,7 @@ const styles = StyleSheet.create({
     color: '#000000',
 
     borderWidth: 2,
-    borderColor: '#FFE81F',
+    borderColor: '#B983FF',
     borderRadius: 8,
 
     padding: 12,
@@ -64,7 +75,7 @@ const styles = StyleSheet.create({
     width: '100%',
     maxWidth: 400,
 
-    backgroundColor: '#FFE81F',
+    backgroundColor: '#B983FF',
 
     padding: 15,
     borderRadius: 8,
@@ -88,7 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#111111',
 
     borderWidth: 1,
-    borderColor: '#FFE81F',
+    borderColor: '#B983FF',
     borderRadius: 10,
 
     padding: 20,
@@ -107,12 +118,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#222222',
 
     borderWidth: 1,
-    borderColor: '#FFE81F',
+    borderColor: '#B983FF',
     borderRadius: 8,
 
     padding: 12,
 
     alignItems: 'center',
+  },
+
+  botaoOperacaoSelecionado: {
+    backgroundColor: '#3D1F5C',
+    borderColor: '#FF2E63',
   },
 
   textoOperacao: {
@@ -121,14 +137,28 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
+  operacaoEscolhida: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    textAlign: 'center',
+    marginBottom: 5,
+  },
+
   resultado: {
-    color: '#00FF88',
+    color: '#39FF14',
     fontSize: 18,
     fontWeight: 'bold',
 
     textAlign: 'center',
 
     marginTop: 15,
+  },
+
+  numeroPergunta: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    textAlign: 'center',
+    marginBottom: 5,
   },
 
   pergunta: {
@@ -151,9 +181,57 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 
+  opcaoSelecionada: {
+    backgroundColor: '#3D1F5C',
+    borderColor: '#B983FF',
+  },
+
   textoOpcao: {
     color: '#FFFFFF',
     fontSize: 16,
+  },
+
+  mensagemQuiz: {
+    color: '#FFE81F',
+    fontSize: 15,
+    textAlign: 'center',
+    marginTop: 12,
+  },
+
+  botaoProximo: {
+    width: '100%',
+    maxWidth: 400,
+
+    backgroundColor: '#FF2E63',
+
+    padding: 15,
+    borderRadius: 8,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    marginTop: 15,
+  },
+
+  resultadoFinal: {
+    color: '#B983FF',
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+
+  pontuacao: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+
+  form: {
+    width: '100%',
+    maxWidth: 400,
+    alignItems: 'center',
   },
 
   botaoSair: {

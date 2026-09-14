@@ -5,7 +5,8 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  Alert
+  Alert,
+  ImageBackground
 } from 'react-native';
 
 import styles from '../Estilo';
@@ -38,14 +39,22 @@ export default function Login({ entrar }) {
 
   return (
 
-    <View style={styles.container}>
+    <ImageBackground
+      source={{
+        uri: 'https://p2.trrsf.com/image/fget/cf/500/0/images.terra.com/2026/01/12/kaisen-ff-01-t81crr30i2b5.jpg'
+      }}
+      style={styles.imagemFundo}
+      resizeMode="cover"
+    >
+
+    <View style={[styles.overlay, styles.container]}>
 
       <Text style={styles.titulo}>
-        STAR WARS
+        JUJUTSU KAISEN
       </Text>
 
       <Text style={styles.subtitulo}>
-        Terminal da Aliança
+        Portal do Colégio de Feitiçaria
       </Text>
 
 
@@ -84,7 +93,7 @@ export default function Login({ entrar }) {
         >
 
           <Text style={styles.textoBotao}>
-            ENTRAR NA BASE
+            ENTRAR NO COLÉGIO
           </Text>
 
         </TouchableOpacity>
@@ -92,6 +101,8 @@ export default function Login({ entrar }) {
       </View>
 
     </View>
+
+    </ImageBackground>
 
   );
 
