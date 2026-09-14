@@ -1,5 +1,49 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
+import { useVideoPlayer, VideoView } from 'expo-video';
+
+function CardPersonagem({ item }) {
+  const player = useVideoPlayer(
+    item.video || '',
+    (player) => {
+      if (item.video) {
+        player.loop = true;
+        player.play();
+      }
+    }
+  );
+
+  return (
+    <View style={styles.item}>
+
+      <Text style={styles.nome}>
+        {item.nome}
+      </Text>
+      <Text
+        style={[
+          styles.zanpakuto,
+          { color: item.corZanpakuto }
+        ]}
+      >
+        Zanpakutō: {item.nomeZanpakuto}
+      </Text>
+
+      {item.video ? (
+        <VideoView
+          player={player}
+          style={styles.imagem}
+          nativeControls={false}
+          contentFit="cover"
+        />
+      ) : item.imagem ? (
+        <Image
+          source={{ uri: item.imagem }}
+          style={styles.imagem}
+        />
+      ) : null}
+
+    </View>
+  );
+}
 
 export default function Home({ navigation }) {
 
@@ -14,27 +58,33 @@ export default function Home({ navigation }) {
       nomeZanpakuto: 'Zangetsu',
       imagem: 'https://i.redd.it/7davmfpsu4df1.png'
     },
+
     {
       id: '2',
       nome: 'Rukia Kuchiki',
       nomeZanpakuto: 'Sode no Shirayuki',
-      imagem: 'https://i.pinimg.com/736x/b9/54/b3/b954b30e4f0a3f33c19fae6df50ea5bc.jpg'
+      corZanpakuto: '#a7dfff',
+      video: 'https://motionbgs.com/media/6814/rukia-kuchiki-bankai.960x540.mp4'
     },
+
     {
       id: '3',
       nome: 'Byakuya Kuchiki',
       nomeZanpakuto: 'Senbonzakura'
     },
+
     {
       id: '4',
       nome: 'Kenpachi Zaraki',
       nomeZanpakuto: 'Nozarashi'
     },
+
     {
       id: '5',
       nome: 'Toshiro Hitsugaya',
       nomeZanpakuto: 'Hyorinmaru'
     },
+
     {
       id: '6',
       nome: 'Sosuke Aizen',
@@ -45,8 +95,9 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
 
-      {/* IMAGEM NO COMEÇO DO SITE */}
+      {/* CABEÇALHO */}
       <View style={styles.bleach}>
+
         <Image
           source={imagemBleach}
           style={styles.imagemBleach}
@@ -55,31 +106,18 @@ export default function Home({ navigation }) {
         <Text style={styles.titulo}>
           PERSONAGENS DE BLEACH
         </Text>
+
       </View>
 
       <FlatList
         data={usuarios}
         keyExtractor={(item) => item.id}
+
         renderItem={({ item }) => (
-          <View style={styles.item}>
-
-            <Text style={styles.nome}>
-              {item.nome}
-            </Text>
-
-            <Text style={styles.zanpakuto}>
-              Zanpakutō: {item.nomeZanpakuto}
-            </Text>
-
-            {item.imagem && (
-              <Image
-                source={{ uri: item.imagem }}
-                style={styles.imagem}
-              />
-            )}
-
-          </View>
+          <CardPersonagem item={item} />
         )}
+
+        showsVerticalScrollIndicator={false}
       />
 
     </View>
@@ -94,7 +132,6 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
-  /* CABEÇALHO */
   bleach: {
     width: '100%',
     height: 200,
@@ -123,7 +160,6 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
   },
 
-  /* CARDS DOS PERSONAGENS */
   item: {
     backgroundColor: '#111111',
     padding: 15,
