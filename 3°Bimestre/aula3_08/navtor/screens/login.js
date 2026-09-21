@@ -26,6 +26,7 @@ export default function Login({ navigation }) {
 
       <Button
         title="Entrar"
+        color="#0f0e0e"
         onPress={() => navigation.navigate('Home')}
       />
     </View>

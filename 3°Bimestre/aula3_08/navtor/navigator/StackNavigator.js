@@ -17,7 +17,7 @@ export default function StackNavigator(){
             >
 
                 <Stack.Screen
-                  name="login"
+                  name="Entrar na Bat família"
                   component={Login}
                   />
                   <Stack.Screen

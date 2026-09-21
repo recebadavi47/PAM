@@ -4,20 +4,25 @@ import { View, Text, StyleSheet, Button, Image, TextInput } from "react-native";
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
+
+         <Image
+        source={{
+          uri: 'https://www.theoakleafnews.com/wp-content/uploads/2022/03/the-batman-poster-e1647555360710.jpg',
+        }}
+        style={styles.image}
+      />
       <Text style={styles.texto}>Bem-vindo à família...</Text>
-      
+    
+
+
       <Button 
         title="Voltar para Login" 
+        color="#0f0e0e"
         onPress={() => navigation.goBack()} 
       />
     </View>
   );
-  <Image
-        source={{
-          uri: 'https://t4.ftcdn.net/jpg/05/67/10/73/360_F_567107362_PBmDoGsKDHy5VM4PWmZ9pKrhYmdraEMf.jpg',
-        }}
-        style={styles.image}
-      />
+ 
 
 }
 
