@@ -6,7 +6,7 @@ export default function Login({ navigation }) {
     <View style={styles.container}>
       <Image
         source={{
-          uri: 'https://reactnative.dev/docs/assets/p_cat1.png',
+          uri: 'https://t4.ftcdn.net/jpg/05/67/10/73/360_F_567107362_PBmDoGsKDHy5VM4PWmZ9pKrhYmdraEMf.jpg',
         }}
         style={styles.image}
       />
@@ -14,13 +14,13 @@ export default function Login({ navigation }) {
       <Text style={styles.label}>Digite o e-mail</Text>
       <TextInput 
         style={styles.input} 
-        placeholder="fulano@gmail.com" 
+        placeholder="RobinReiDelas13@gmail.com" 
       />
 
       <Text style={styles.label}>Senha</Text>
       <TextInput
         style={styles.input}
-        placeholder="1234566777"
+        placeholder="gostoso123"
         secureTextEntry
       />
 
@@ -33,13 +33,15 @@ export default function Login({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     justifyContent: 'center',
     padding: 20,
+    backgroundColor: '#c20f08',
   },
   image: {
-    width: 200,
+    width: 300,
     height: 200,
     alignSelf: 'center',
     marginBottom: 20,
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginTop: 10,
+    color: '#fffefe',
   },
   input: {
     borderWidth: 1,
@@ -56,5 +59,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 5,
     marginBottom: 10,
+    color:'#f7f7f7',
   },
 });

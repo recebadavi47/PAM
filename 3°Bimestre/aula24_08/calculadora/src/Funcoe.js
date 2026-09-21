@@ -1,5 +1,5 @@
 export function verificarLogin(usuario, senha) {
-  if (usuario === 'toji' && senha === 'macaquito') {
+  if (usuario === 'toji' && senha === '1234') {
     return true;
   }
 
