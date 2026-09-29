@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     maxWidth: 400,
 
     
-    backgroundColor: '#d6d4b3',
+    backgroundColor: '#B983FF',
 
     padding: 15,
     borderRadius: 8,
@@ -112,6 +112,29 @@ const styles = StyleSheet.create({
   },
 
   textoBotao: {
+    color: '#000000',
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'Georgia',
+  },
+
+  botao2: {
+    width: '100%',
+    maxWidth: 400,
+
+    
+    backgroundColor: '#d6d4b3',
+
+    padding: 15,
+    borderRadius: 8,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    marginTop: 20,
+  },
+
+  textoBotao2: {
     color: '#000000',
     fontSize: 16,
     fontWeight: 'bold',

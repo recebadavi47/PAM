@@ -5,7 +5,8 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
-  ImageBackground
+  ImageBackground,
+  Image
 } from 'react-native';
 
 import styles from '../Estilo';
@@ -20,25 +21,27 @@ import { verificarQuiz } from '../Funcoe';
 const PERSONAGENS = [
   {
     id: '1',
-    nome: 'Kim Suho',
-    imagem: 'https://cf.preview.redd.it/dungeon-odyssey-this-is-my-mc-now-it-is-his-manhwa-v0-edqktd03b9sg1.jpeg?auto=webp&s=d5040e61c273d72cdb15639ea2891c2f706c1977',
-    pergunta: 'Qual é o papel de Kim Suho na história?',
-    opcoes: ['Protagonista', 'Vilão', 'Mentor', 'Comerciante'],
+    nome: 'Kim Jinwoo',
+    imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE5smZocJsmzPWHMUXYfwpgs9iEsaj3apzthurV0419Q&s=10',
+    pergunta: 'Qual é o papel de Kim Jinwoo na história?',
+    opcoes: ['Protagonista', 'Vilão', 'Mentor', 'Figurante'],
     correta: 'Protagonista'
   },
   {
     id: '2',
-    nome: 'Personagem 2',
-    pergunta: 'Escreva aqui a pergunta sobre ele(a)',
-    opcoes: ['Opção A', 'Opção B', 'Opção C', 'Opção D'],
-    correta: 'Opção A'
+    nome: 'Uther',
+    imagem: 'https://i.pinimg.com/736x/47/8b/57/478b57408c4b1d559169ae69ec03c505.jpg',
+    pergunta: 'Uther é um:',
+    opcoes: ['Slime', 'Revenant', 'Zumbi', 'Hulk'],
+    correta: 'Slime'
   },
   {
     id: '3',
-    nome: 'Personagem 3',
-    pergunta: 'Escreva aqui a pergunta sobre ele(a)',
-    opcoes: ['Opção A', 'Opção B', 'Opção C', 'Opção D'],
-    correta: 'Opção B'
+    nome: 'Valicious',
+    imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJDq2w8T5zwM5Xfm0o0Xc5Yazlm7kkwSsn0mXvTe9lONQR5wtLUX28K3SU&s=10',
+    pergunta: 'Ele é o rei da...',
+    opcoes: ['Vida', 'Morte', 'Natureza', 'Dos Minerais'],
+    correta: 'Morte'
   },
 ];
 
@@ -46,7 +49,6 @@ const PERSONAGENS = [
 // -----------------------------------------------------
 // CARD DO PERSONAGEM (cada um tem o próprio estado)
 // -----------------------------------------------------
-
 function CardPersonagem({ item }) {
 
   const [selecionada, setSelecionada] = useState('');
@@ -88,6 +90,22 @@ function CardPersonagem({ item }) {
         {item.nome}
       </Text>
 
+      {item.imagem ? (
+        <Image
+          source={{ uri: item.imagem }}
+          style={{
+            width: 300,
+            height: 200,
+            borderRadius: 10,
+            marginBottom: 10,
+            borderWidth: 1,
+            borderColor: '#d6d4b3',
+            borderRadius: 8,
+          }}
+          resizeMode="cover"
+        />
+      ) : null}
+
       <Text style={styles.pergunta}>
         {item.pergunta}
       </Text>
@@ -110,10 +128,10 @@ function CardPersonagem({ item }) {
       ))}
 
       <TouchableOpacity
-        style={styles.botao}
+        style={styles.botao2}
         onPress={confirmar}
       >
-        <Text style={styles.textoBotao}>
+        <Text style={styles.textoBotao2}>
           CONFIRMAR RESPOSTA
         </Text>
       </TouchableOpacity>
