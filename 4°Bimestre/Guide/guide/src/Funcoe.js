@@ -1,3 +1,15 @@
+import { db } from '../firebase/firebase';
+
+import {
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  increment,
+  onSnapshot
+} from 'firebase/firestore';
+
+
 export function verificarLogin(usuario, senha) {
   if (usuario === 'pietrao' && senha === '1234') {
     return true;
@@ -6,41 +18,6 @@ export function verificarLogin(usuario, senha) {
   return false;
 }
 
-
-export function realizarCalculo(numero1, numero2, operacao) {
-
-  if (numero1 === '' || numero2 === '') {
-    return 'Digite os dois números';
-  }
-
-  const n1 = Number(numero1);
-  const n2 = Number(numero2);
-
-  switch (operacao) {
-
-    case '+':
-      return n1 + n2;
-
-    case '-':
-      return n1 - n2;
-
-    case '*':
-      return n1 * n2;
-
-    case '/':
-
-      if (n2 === 0) {
-        return 'Não é possível dividir por zero';
-      }
-
-      return n1 / n2;
-
-    default:
-      return 'Operação inválida';
-  }
-}
-
-
 export function verificarQuiz(resposta, respostaCorreta) {
 
   if (resposta === respostaCorreta) {
@@ -48,4 +25,47 @@ export function verificarQuiz(resposta, respostaCorreta) {
   }
 
   return false;
+}
+
+
+// -----------------------------------------------------
+// VOTAÇÃO (coleção "guide" no Firestore)
+// -----------------------------------------------------
+
+export async function votarNoFirebase(personagemId) {
+
+  const referencia = doc(db, 'guide', personagemId);
+  const snapshot = await getDoc(referencia);
+
+  if (snapshot.exists()) {
+
+    await updateDoc(referencia, {
+      votos: increment(1)
+    });
+
+  } else {
+
+    await setDoc(referencia, {
+      votos: 1
+    });
+
+  }
+}
+
+
+export function escutarVotos(personagemId, callback) {
+
+  const referencia = doc(db, 'guide', personagemId);
+
+  const cancelar = onSnapshot(referencia, (snapshot) => {
+
+    if (snapshot.exists()) {
+      callback(snapshot.data().votos);
+    } else {
+      callback(0);
+    }
+
+  });
+
+  return cancelar;
 }

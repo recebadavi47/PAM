@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   View,
@@ -11,7 +11,11 @@ import {
 
 import styles from '../Estilo';
 
-import { verificarQuiz } from '../Funcoe';
+import {
+  verificarQuiz,
+  votarNoFirebase,
+  escutarVotos
+} from '../Funcoe';
 
 
 // -----------------------------------------------------
@@ -47,13 +51,29 @@ const PERSONAGENS = [
 
 
 // -----------------------------------------------------
-// CARD DO PERSONAGEM (cada um tem o próprio estado)
+// CARD DO PERSONAGEM
 // -----------------------------------------------------
+
 function CardPersonagem({ item }) {
 
   const [selecionada, setSelecionada] = useState('');
   const [confirmada, setConfirmada] = useState(false);
   const [mensagem, setMensagem] = useState('');
+
+  const [votos, setVotos] = useState(0);
+  const [votando, setVotando] = useState(false);
+
+
+  useEffect(() => {
+
+    const cancelarEscuta = escutarVotos(item.id, (quantidade) => {
+      setVotos(quantidade);
+    });
+
+    return () => cancelarEscuta();
+
+  }, []);
+
 
   function escolher(opcao) {
     if (!confirmada) {
@@ -83,6 +103,31 @@ function CardPersonagem({ item }) {
     setConfirmada(true);
   }
 
+
+  async function votar() {
+
+    if (votando) {
+      return;
+    }
+
+    setVotando(true);
+
+    try {
+
+      await votarNoFirebase(item.id);
+
+    } catch (erro) {
+
+      console.log('Erro ao votar:', erro);
+
+    } finally {
+
+      setVotando(false);
+
+    }
+  }
+
+
   return (
     <View style={styles.card}>
 
@@ -96,7 +141,6 @@ function CardPersonagem({ item }) {
           style={{
             width: 300,
             height: 200,
-            borderRadius: 10,
             marginBottom: 10,
             borderWidth: 1,
             borderColor: '#d6d4b3',
@@ -105,6 +149,20 @@ function CardPersonagem({ item }) {
           resizeMode="cover"
         />
       ) : null}
+
+      <TouchableOpacity
+        style={styles.botao2}
+        onPress={votar}
+        disabled={votando}
+      >
+        <Text style={styles.textoBotao2}>
+          VOTAR EM {item.nome.toUpperCase()}
+        </Text>
+      </TouchableOpacity>
+
+      <Text style={styles.mensagemQuiz}>
+        {votos} {votos === 1 ? 'voto' : 'votos'}
+      </Text>
 
       <Text style={styles.pergunta}>
         {item.pergunta}
@@ -163,36 +221,36 @@ export default function Home({ sair }) {
 
       <View style={styles.overlay}>
 
-       <FlatList
-  data={PERSONAGENS}
-  keyExtractor={(item) => item.id}
-  renderItem={({ item }) => <CardPersonagem item={item} />}
-  contentContainerStyle={[
-    styles.containerHome,
-    {
-      justifyContent: 'flex-start',
-      paddingTop: 20,
-    },
-  ]}
-  showsVerticalScrollIndicator={false}
+        <FlatList
+          data={PERSONAGENS}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <CardPersonagem item={item} />}
+          contentContainerStyle={[
+            styles.containerHome,
+            {
+              justifyContent: 'flex-start',
+              paddingTop: 20,
+            },
+          ]}
+          showsVerticalScrollIndicator={false}
 
-  ListHeaderComponent={
-    <Text style={styles.titulo2}>
-      DUNGEON ODYSSEY
-    </Text>
-  }
+          ListHeaderComponent={
+            <Text style={styles.titulo2}>
+              DUNGEON ODYSSEY
+            </Text>
+          }
 
-  ListFooterComponent={
-    <TouchableOpacity
-      style={styles.botaoSair}
-      onPress={sair}
-    >
-      <Text style={styles.textoSair}>
-        SAIR DO COLÉGIO
-      </Text>
-    </TouchableOpacity>
-  }
-/>
+          ListFooterComponent={
+            <TouchableOpacity
+              style={styles.botaoSair}
+              onPress={sair}
+            >
+              <Text style={styles.textoSair}>
+                SAIR DO COLÉGIO
+              </Text>
+            </TouchableOpacity>
+          }
+        />
 
       </View>
 
