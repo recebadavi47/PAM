@@ -37,6 +37,7 @@ export async function votarNoFirebase(personagemId) {
   const referencia = doc(db, 'guide', personagemId);
   const snapshot = await getDoc(referencia);
 
+
   if (snapshot.exists()) {
 
     await updateDoc(referencia, {

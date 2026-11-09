@@ -3,7 +3,7 @@ Davi Augusto
 
 Afonso Henrique
 
-npm run we
+npm run web
 
 npx create-expo-app guide --template blank
 
