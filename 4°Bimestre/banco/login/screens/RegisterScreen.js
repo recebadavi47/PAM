@@ -2,8 +2,8 @@ import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { auth, db } from "../firebaseConfig";
-import { estilos, traduzErro } from "../estilos";
+import { auth, db } from "../firebase/firebase";
+import { estilos, traduzErro } from "./estilos";
 
 export default function RegisterScreen({ navigation }) {
   const [nome, setNome] = useState("");

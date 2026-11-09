@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 import { signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "../firebaseConfig";
-import { estilos } from "../estilos";
+import { auth, db } from "../firebase/firebase";
+import { estilos } from "./estilos";
 
 export default function HomeScreen() {
   const [usuario, setUsuario] = useState(null);
