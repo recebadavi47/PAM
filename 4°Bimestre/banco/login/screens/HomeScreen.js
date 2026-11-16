@@ -1,21 +1,26 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
 import { signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../firebase/firebase";
 import { estilos } from "./estilos";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const [usuario, setUsuario] = useState(null);
 
-  // Busca no Firestore os dados do usuário logado
-  useEffect(() => {
-    async function carregar() {
-      const snap = await getDoc(doc(db, "usuarios", auth.currentUser.uid));
-      setUsuario(snap.exists() ? snap.data() : { nome: "Usuário", email: auth.currentUser.email });
-    }
-    carregar();
-  }, []);
+  // Busca no Firestore os dados do usuário logado.
+  // useFocusEffect roda toda vez que a Home volta a aparecer,
+  // assim o nome já vem atualizado depois de editar.
+  useFocusEffect(
+    useCallback(() => {
+      async function carregar() {
+        const snap = await getDoc(doc(db, "usuarios", auth.currentUser.uid));
+        setUsuario(snap.exists() ? snap.data() : { nome: "Usuário", email: auth.currentUser.email });
+      }
+      carregar();
+    }, [])
+  );
 
   if (!usuario) {
     return (
@@ -30,7 +35,11 @@ export default function HomeScreen() {
       <Text style={estilos.titulo}>Olá, {usuario.nome}! 🎉</Text>
       <Text style={estilos.subtitulo}>Você está logado como {usuario.email}</Text>
 
-      <TouchableOpacity style={estilos.botao} onPress={() => signOut(auth)}>
+      <TouchableOpacity style={estilos.botao} onPress={() => navigation.navigate("EditarPerfil")}>
+        <Text style={estilos.textoBotao}>Editar informações</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={estilos.botaoSecundario} onPress={() => signOut(auth)}>
         <Text style={estilos.textoBotao}>Sair</Text>
       </TouchableOpacity>
     </View>

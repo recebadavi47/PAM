@@ -8,6 +8,7 @@ import { auth } from "./firebase/firebase";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import HomeScreen from "./screens/HomeScreen";
+import EditarPerfilScreen from "./screens/EditarPerfilScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +37,10 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {usuario ? (
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="EditarPerfil" component={EditarPerfilScreen} />
+          </>
         ) : (
           <>
             <Stack.Screen name="Login" component={LoginScreen} />

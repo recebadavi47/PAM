@@ -7,6 +7,7 @@ export const cores = {
   suave: "#94A3B8",
   destaque: "#6366F1",
   erro: "#F87171",
+  sucesso: "#4ADE80",
 };
 
 export const estilos = StyleSheet.create({
@@ -31,6 +32,15 @@ export const estilos = StyleSheet.create({
   textoBotao: { color: "#fff", fontSize: 16, fontWeight: "bold" },
   link: { color: cores.destaque, textAlign: "center", marginTop: 20, fontSize: 15 },
   erro: { color: cores.erro, marginBottom: 8 },
+  sucesso: { color: cores.sucesso, marginBottom: 8 },
+  rotulo: { color: cores.suave, fontSize: 13, marginBottom: 6 },
+  botaoSecundario: {
+    backgroundColor: cores.card,
+    borderRadius: 10,
+    padding: 15,
+    alignItems: "center",
+    marginTop: 12,
+  },
 });
 
 // Traduz os erros do Firebase para algo que o usuário entenda
@@ -45,6 +55,8 @@ export function traduzErro(codigo) {
     "auth/weak-password": "A senha precisa ter pelo menos 6 caracteres.",
     "auth/network-request-failed": "Sem conexão com a internet.",
     "auth/too-many-requests": "Muitas tentativas. Tente de novo mais tarde.",
+    "auth/requires-recent-login": "Por segurança, saia e entre de novo para fazer isso.",
+    "permission-denied": "Sem permissão para salvar. Verifique as regras do Firestore.",
   };
   return erros[codigo] || "Algo deu errado. Tente novamente.";
 }
