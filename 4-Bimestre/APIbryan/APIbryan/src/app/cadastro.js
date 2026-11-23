@@ -5,11 +5,11 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Alert,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import { cadastrarUsuario } from '../services/auth';
+import { mostrarErro } from '../services/feedback';
 import { conectarUsuarioStream } from '../services/stream';
 
 export default function Cadastro() {
@@ -21,11 +21,11 @@ export default function Cadastro() {
 
   async function cadastrar() {
     if (!nome.trim() || !email.trim() || !senha) {
-      Alert.alert('Atenção', 'Preencha todos os campos.');
+      mostrarErro('Atenção', 'Preencha todos os campos.');
       return;
     }
     if (senha.length < 6) {
-      Alert.alert('Atenção', 'A senha precisa ter pelo menos 6 caracteres.');
+      mostrarErro('Atenção', 'A senha precisa ter pelo menos 6 caracteres.');
       return;
     }
 
@@ -35,7 +35,7 @@ export default function Cadastro() {
       await conectarUsuarioStream(usuario);
       router.replace('/chat');
     } catch (erro) {
-      Alert.alert('Erro no cadastro', erro.message);
+      mostrarErro('Erro no cadastro', erro.message);
     } finally {
       setCarregando(false);
     }
