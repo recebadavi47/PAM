@@ -11,4 +11,4 @@ cd guide
 
 npx expo install react-dom react-native-web @expo/metro-runtime
 
-y
+ynpx expo install stream-chat stream-chat-expo

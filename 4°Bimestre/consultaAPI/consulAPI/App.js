@@ -8,8 +8,8 @@ import {
   ActivityIndicator,
   Keyboard,
 } from 'react-native';
-import { consultarEndereco } from './rsc/funcoe';
-import styles from './rsc/estilo';
+import { consultarEndereco } from './src/funcoe';
+import styles from './src/estilo';
 
 export default function App() {
   const [uf, setUf] = useState('');
