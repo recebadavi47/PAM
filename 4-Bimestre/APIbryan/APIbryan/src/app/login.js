@@ -5,11 +5,11 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Alert,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import { fazerLogin } from '../services/auth';
+import { mostrarErro } from '../services/feedback';
 import { conectarUsuarioStream } from '../services/stream';
 
 export default function Login() {
@@ -20,7 +20,7 @@ export default function Login() {
 
   async function entrar() {
     if (!email.trim() || !senha) {
-      Alert.alert('Atenção', 'Preencha o e-mail e a senha.');
+      mostrarErro('Atenção', 'Preencha o e-mail e a senha.');
       return;
     }
 
@@ -30,7 +30,7 @@ export default function Login() {
       await conectarUsuarioStream(usuario);
       router.replace('/chat');
     } catch (erro) {
-      Alert.alert('Erro ao entrar', erro.message);
+      mostrarErro('Erro ao entrar', erro.message);
     } finally {
       setCarregando(false);
     }
